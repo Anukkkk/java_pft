@@ -2,8 +2,6 @@ package ru.stqa.pft.sandbox;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.w3c.dom.ls.LSOutput;
-
 
 public class SquareTests {
     @Test
