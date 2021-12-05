@@ -18,10 +18,10 @@ public class AddingNewContact {
   public void setUp() throws Exception {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    login();
   }
 
-  @Test
-  public void testAddingNewContact() throws Exception {
+  private void login() {
     wd.get("http://localhost:3307/addressbook/addressbook/index.php");
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
@@ -30,7 +30,22 @@ public class AddingNewContact {
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.id("LoginForm")).click();
     wd.findElement(By.xpath("//input[@value='Login']")).click();
-    wd.findElement(By.linkText("add new")).click();
+  }
+
+  @Test
+  public void testAddingNewContact() throws Exception {
+
+    initContactCreation();
+    fillInContactForm();
+    goToHomePage();
+
+  }
+
+  private void goToHomePage() {
+    wd.findElement(By.linkText("home page")).click();
+  }
+
+  private void fillInContactForm() {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys("Ann");
@@ -41,13 +56,20 @@ public class AddingNewContact {
     wd.findElement(By.name("nickname")).clear();
     wd.findElement(By.name("nickname")).sendKeys("ann");
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
-    wd.findElement(By.linkText("home page")).click();
-    wd.findElement(By.linkText("Logout")).click();
+  }
+
+  private void initContactCreation() {
+    wd.findElement(By.linkText("add new")).click();
   }
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
+    logOut();
     wd.quit();
+      }
+
+  private void logOut() {
+    wd.findElement(By.linkText("Logout")).click();
   }
 
   private boolean isElementPresent(By by) {
