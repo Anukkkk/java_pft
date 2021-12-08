@@ -1,8 +1,6 @@
 package ru.stqa.pft.addressbook.appManager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,16 +10,16 @@ public class ApplicationManager {
     public WebDriver wd;
     private contactHelper contactHelper;
     private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
-    private GroupHelper groupHelper;
+    private NavigationBaseHelper navigationHelper;
+    private GroupBaseHelper groupHelper;
 
     public void init() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost:3307/addressbook/addressbook/");
         contactHelper = new contactHelper(wd);
-        groupHelper = new GroupHelper(wd);
-        navigationHelper = new NavigationHelper(wd);
+        groupHelper = new GroupBaseHelper(wd);
+        navigationHelper = new NavigationBaseHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
     }
@@ -38,29 +36,11 @@ public class ApplicationManager {
         wd.findElement(By.linkText("home page")).click();
     }
 
-    private boolean isElementPresent(By by) {
-        try {
-            wd.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-    public GroupHelper getGroupHelper() {
+    public GroupBaseHelper getGroupHelper() {
         return groupHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    public NavigationBaseHelper getNavigationHelper() {
         return navigationHelper;
     }
 
