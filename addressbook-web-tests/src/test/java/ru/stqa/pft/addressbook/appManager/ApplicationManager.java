@@ -10,16 +10,16 @@ public class ApplicationManager {
     public WebDriver wd;
     private contactHelper contactHelper;
     private SessionHelper sessionHelper;
-    private NavigationBaseHelper navigationHelper;
-    private GroupBaseHelper groupHelper;
+    private NavigationHelper navigationHelper;
+    private GroupHelper groupHelper;
 
     public void init() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost:3307/addressbook/addressbook/");
         contactHelper = new contactHelper(wd);
-        groupHelper = new GroupBaseHelper(wd);
-        navigationHelper = new NavigationBaseHelper(wd);
+        groupHelper = new GroupHelper(wd);
+        navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
     }
@@ -36,11 +36,11 @@ public class ApplicationManager {
         wd.findElement(By.linkText("home page")).click();
     }
 
-    public GroupBaseHelper getGroupHelper() {
+    public GroupHelper getGroupHelper() {
         return groupHelper;
     }
 
-    public NavigationBaseHelper getNavigationHelper() {
+    public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
 
