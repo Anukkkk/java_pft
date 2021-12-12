@@ -2,19 +2,27 @@ package ru.stqa.pft.addressbook.appManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class СontactHelper extends BaseHelper {
+public class СontactHelper extends HelperBase {
 
     public СontactHelper(WebDriver wd) {
         super(wd);
     }
 
-    public void fillInContactForm(ContactData contactData) {
+    public void fillInContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("middlename"), contactData.getSecondName());
         type(By.name("lastname"), contactData.getSurname());
         type(By.name("nickname"), contactData.getNickName());
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
