@@ -19,11 +19,15 @@ public class СontactHelper extends HelperBase {
         type(By.name("nickname"), contactData.getNickName());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            Select select = new Select(wd.findElement(By.name("new_group")));
+            if (select.getOptions().size()>0 && select.getOptions().size() > contactData.getGroup()) {
+                select.selectByIndex(contactData.getGroup());
+            } else {
+                select.selectByIndex(select.getOptions().size()-1);
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void initContactCreation() {

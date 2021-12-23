@@ -8,10 +8,10 @@ public class ContactModificationTests extends TestBase{
     public void testContactModification (){
         app.getNavigationHelper().goToHomePage();
         if (! app.getContactHelper().isThereAContact()){
-            app.getContactHelper().createContact(new ContactData("test1", null, null, "ann", "test1"));
+            app.getContactHelper().createContact(new ContactData("test1", null, null, "ann", 1));
         }
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillInContactForm(new ContactData("test1", "test2", "test3", "test4", null), false);
+        app.getContactHelper().fillInContactForm(new ContactData("test1", "test2", "test3", "test4", 1), false);
         app.getContactHelper().submitContactModification();
     }
 
