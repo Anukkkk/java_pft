@@ -5,14 +5,14 @@ public class ContactData {
     private final String secondName;
     private final String surname;
     private final String nickName;
-    private int group;
+    private int groupIndex;
 
-    public ContactData(String firstName, String secondName, String surname, String nickName, int group) {
+    public ContactData(String firstName, String secondName, String surname, String nickName, int groupIndex) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.surname = surname;
         this.nickName = nickName;
-        this.group = group;
+        this.groupIndex = groupIndex;
     }
 
     public String getFirstName() {
@@ -31,7 +31,7 @@ public class ContactData {
         return nickName;
     }
 
-    public int getGroup() {
-        return group;
+    public int getGroupIndex() {
+        return groupIndex;
     }
 }

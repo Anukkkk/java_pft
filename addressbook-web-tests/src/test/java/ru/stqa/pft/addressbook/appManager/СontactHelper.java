@@ -20,14 +20,15 @@ public class СontactHelper extends HelperBase {
 
         if (creation) {
             Select select = new Select(wd.findElement(By.name("new_group")));
-            if (select.getOptions().size()>0 && select.getOptions().size() > contactData.getGroup()) {
-                select.selectByIndex(contactData.getGroup());
+            if (select.getOptions().size()>0 && select.getOptions().size() > contactData.getGroupIndex()) {
+                select.selectByIndex(contactData.getGroupIndex());
             } else {
                 select.selectByIndex(select.getOptions().size()-1);
             }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void initContactCreation() {
@@ -51,7 +52,7 @@ public class СontactHelper extends HelperBase {
     }
 
     public void submitContactModification() {
-        click(By.xpath("//div[@id='content']/form/input[22]"));
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public boolean isThereAContact() {
