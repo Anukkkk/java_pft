@@ -48,8 +48,9 @@ public class СontactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void alertClose() {
+    public void alertClose() throws InterruptedException {
         wd.switchTo().alert().accept();
+        Thread.sleep(5000);
     }
 
     public void initContactModification() {
