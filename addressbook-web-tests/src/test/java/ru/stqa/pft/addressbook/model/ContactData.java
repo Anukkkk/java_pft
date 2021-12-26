@@ -11,7 +11,7 @@ public class ContactData {
     private int groupIndex;
 
     public ContactData(String firstName, String secondName, String surname, String nickName, int groupIndex) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.secondName = secondName;
         this.surname = surname;
@@ -68,14 +68,15 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname);
+        return Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, surname, id);
+        return Objects.hash(firstName, surname);
     }
 
-    public void setId(int id) { this.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 }
