@@ -7,7 +7,7 @@ public class ContactData {
     private final String secondName;
     private final String surname;
     private final String nickName;
-    private final int id;
+    private int id;
     private int groupIndex;
 
     public ContactData(String firstName, String secondName, String surname, String nickName, int groupIndex) {
@@ -25,19 +25,6 @@ public class ContactData {
         this.surname = surname;
         this.nickName = null;
         this.secondName = null;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, surname, id);
     }
 
     public int getId() {
@@ -76,4 +63,19 @@ public class ContactData {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, surname, id);
+    }
+
+    public void setId(int id) { this.id = id;
+    }
 }
