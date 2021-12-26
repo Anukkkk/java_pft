@@ -41,7 +41,6 @@ public class СontactHelper extends HelperBase {
 
     public void selectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
-        //click(By.xpath("//tr[2]//input"));
     }
 
     public void deleteSelectedContacts() {
@@ -58,7 +57,7 @@ public class СontactHelper extends HelperBase {
     }
 
     public void submitContactModification() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
+        click(By.xpath("//input[@value='Update']"));
     }
 
     public boolean isThereAContact() {
@@ -90,8 +89,8 @@ public class СontactHelper extends HelperBase {
            String firstname = cells.get(2).getText();
            String surname = cells.get(1).getText();
            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-           ContactData contactData = new ContactData(id, firstname, surname);
-           contacts.add(contactData);
+           ContactData contact = new ContactData(id, firstname, surname);
+           contacts.add(contact);
        }
         return contacts;
     }
