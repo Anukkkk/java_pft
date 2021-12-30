@@ -3,29 +3,12 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private final String firstName;
-    private final String secondName;
-    private final String surname;
-    private final String nickName;
-    private int id;
+    private String firstName;
+    private String secondName;
+    private String surname;
+    private String nickName;
+    private int id = Integer.MAX_VALUE;
     private int groupIndex;
-
-    public ContactData(String firstName, String secondName, String surname, String nickName, int groupIndex) {
-        this.id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.surname = surname;
-        this.nickName = nickName;
-        this.groupIndex = groupIndex;
-    }
-
-    public ContactData(int id, String firstname, String surname) {
-        this.id = id;
-        this.firstName = firstname;
-        this.surname = surname;
-        this.nickName = null;
-        this.secondName = null;
-    }
 
     public int getId() {
         return id;
@@ -76,7 +59,33 @@ public class ContactData {
         return Objects.hash(firstName, surname);
     }
 
-    public void setId(int id) {
+    public ContactData withId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ContactData withSecondName(String secondName) {
+        this.secondName = secondName;
+        return this;
+    }
+
+    public ContactData withSurname(String surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    public ContactData withNickName(String nickName) {
+        this.nickName = nickName;
+        return this;
+    }
+
+    public ContactData withGroupIndex(int groupIndex) {
+        this.groupIndex = groupIndex;
+        return this;
     }
 }
