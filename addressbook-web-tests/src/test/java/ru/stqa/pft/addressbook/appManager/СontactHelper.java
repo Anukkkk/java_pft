@@ -35,7 +35,7 @@ public class СontactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void modifyContact(List<ContactData> before, int index, ContactData contact) {
+    public void modify(List<ContactData> before, int index, ContactData contact) {
         initContactModification(before.get(index).getId());
         fillInContactForm(contact, false);
         submitContactModification();
@@ -71,10 +71,16 @@ public class СontactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         initContactCreation();
         fillInContactForm(contact, true);
         goToHomePage();
+    }
+
+    public void delete(int index) throws InterruptedException {
+        selectContact(index);
+        deleteSelectedContacts();
+        alertClose();
     }
 
     public void goToHomePage() {
@@ -88,7 +94,7 @@ public class СontactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
