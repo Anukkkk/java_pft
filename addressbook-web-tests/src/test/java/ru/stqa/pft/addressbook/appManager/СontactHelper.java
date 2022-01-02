@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,8 +36,9 @@ public class СontactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void modify(List<ContactData> before, int index, ContactData contact) {
-        initContactModification(before.get(index).getId());
+    public void modify(ContactData contact) {
+        selectContactById(contact.getId());
+        initContactModification(contact.getId());
         fillInContactForm(contact, false);
         submitContactModification();
         goToHomePage();
@@ -50,6 +50,11 @@ public class СontactHelper extends HelperBase {
 
     public void selectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
+    }
+
+    public void selectContactById (int id) {
+      //wd.findElement(By.cssSelector("input[value'" + id + "']")).click();
+      wd.findElement(By.xpath("//input[@value='" + id + "']")).click();
     }
 
     public void deleteSelectedContacts() {
@@ -79,8 +84,9 @@ public class СontactHelper extends HelperBase {
         goToHomePage();
     }
 
-    public void delete(int index) throws InterruptedException {
-        selectContact(index);
+
+    public void deleteById(ContactData contact) throws InterruptedException {
+        selectContactById(contact.getId());
         deleteSelectedContacts();
         alertClose();
     }
@@ -96,18 +102,6 @@ public class СontactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<>();
-        List<WebElement> elements = wd.findElements(By.name("entry"));
-        for (WebElement element : elements) {
-            List<WebElement> cells = element.findElements(By.tagName("td"));
-            String firstname = cells.get(2).getText();
-            String surname = cells.get(1).getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            contacts.add(new ContactData().withId(id).withFirstName(firstname).withSurname(surname));
-        }
-        return contacts;
-    }
 
     public Set<ContactData> all() {
         Set<ContactData> contacts = new HashSet<>();
@@ -121,4 +115,6 @@ public class СontactHelper extends HelperBase {
         }
         return contacts;
     }
+
+
 }
