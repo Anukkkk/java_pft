@@ -9,6 +9,51 @@ public class ContactData {
     private String nickName;
     private int id = Integer.MAX_VALUE;
     private int groupIndex;
+    private String workPhone;
+    private String homePhone;
+    private String mobilePhone;
+    private String email;
+    private String email2;
+    private String email3;
+    private String postAddress;
+    private String AllPhones;
+    private String AllEmails;
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public String getAllEmails() {
+        return AllEmails;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.AllEmails = allEmails;
+        return this;
+    }
+
+    public String getAllPhones() {
+        return AllPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.AllPhones = allPhones;
+        return this;
+    }
 
     public int getId() {
         return id;
@@ -33,6 +78,16 @@ public class ContactData {
     public int getGroupIndex() {
         return groupIndex;
     }
+
+    public String getWorkPhone() { return workPhone;}
+
+    public String getHomePhone() {return homePhone;}
+
+    public String getMobilePhone() {return mobilePhone;}
+
+    public String getEmail() {return email;}
+
+    public String getPostAddress() {return postAddress;}
 
     @Override
     public String toString() {
@@ -88,4 +143,33 @@ public class ContactData {
         this.groupIndex = groupIndex;
         return this;
     }
+
+    public ContactData withHomePhone(String home) {
+        this.homePhone = home;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobile) {
+        this.mobilePhone = mobile;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String work) {
+        this.workPhone = work;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+
+
+    public ContactData withPostAddress(String postAddress) {
+        this.postAddress = postAddress;
+        return this;
+    }
+
+
 }
