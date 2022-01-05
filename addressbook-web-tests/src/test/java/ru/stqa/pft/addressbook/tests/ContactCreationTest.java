@@ -16,7 +16,8 @@ public class ContactCreationTest extends TestBase {
         app.goTo().homePage();
         Contacts before = app.contact().all();
         File photo = new File("src/test/resources/126.png");
-        ContactData contact = new ContactData().withFirstName("Ann").withSurname("Porotikova10").withGroupIndex(10).withPhoto(photo);
+        ContactData contact = new ContactData().withFirstName("Ann").withSurname("Porotikova10")
+                .withGroupIndex(10).withPhoto(photo);
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
         Contacts after = app.contact().all();

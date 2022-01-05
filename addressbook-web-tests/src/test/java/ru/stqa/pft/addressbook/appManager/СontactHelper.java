@@ -116,7 +116,6 @@ public class СontactHelper extends HelperBase {
             List<WebElement> cells = element.findElements(By.tagName("td"));
             String firstname = cells.get(2).getText();
             String surname = cells.get(1).getText();
-            //String email = cells.get(4).getText();
             String postAddress = cells.get(3).getText();
             String allPhones = cells.get(5).getText();
             String allEmails = cells.get(4).getText();
