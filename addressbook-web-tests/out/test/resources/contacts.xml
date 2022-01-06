@@ -1,107 +1,23 @@
 <list>
-  <ru.stqa.pft.addressbook.model.ContactData>
+  <contacts>
     <firstName>test 0</firstName>
     <secondName>SecondName 0</secondName>
     <surname>surname 0</surname>
     <id>2147483647</id>
     <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
+  </contacts>
+  <contacts>
     <firstName>test 1</firstName>
     <secondName>SecondName 1</secondName>
     <surname>surname 1</surname>
     <id>2147483647</id>
     <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
+  </contacts>
+  <contacts>
     <firstName>test 2</firstName>
     <secondName>SecondName 2</secondName>
     <surname>surname 2</surname>
     <id>2147483647</id>
     <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 3</firstName>
-    <secondName>SecondName 3</secondName>
-    <surname>surname 3</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 4</firstName>
-    <secondName>SecondName 4</secondName>
-    <surname>surname 4</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 5</firstName>
-    <secondName>SecondName 5</secondName>
-    <surname>surname 5</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 6</firstName>
-    <secondName>SecondName 6</secondName>
-    <surname>surname 6</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 7</firstName>
-    <secondName>SecondName 7</secondName>
-    <surname>surname 7</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 8</firstName>
-    <secondName>SecondName 8</secondName>
-    <surname>surname 8</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 9</firstName>
-    <secondName>SecondName 9</secondName>
-    <surname>surname 9</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 10</firstName>
-    <secondName>SecondName 10</secondName>
-    <surname>surname 10</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 11</firstName>
-    <secondName>SecondName 11</secondName>
-    <surname>surname 11</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 12</firstName>
-    <secondName>SecondName 12</secondName>
-    <surname>surname 12</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 13</firstName>
-    <secondName>SecondName 13</secondName>
-    <surname>surname 13</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <firstName>test 14</firstName>
-    <secondName>SecondName 14</secondName>
-    <surname>surname 14</surname>
-    <id>2147483647</id>
-    <groupIndex>0</groupIndex>
-  </ru.stqa.pft.addressbook.model.ContactData>
+  </contacts>
 </list>

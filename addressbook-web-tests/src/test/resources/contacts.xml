@@ -1,17 +1,20 @@
 <list>
   <contacts>
+    <firstName>test 0</firstName>
     <secondName>SecondName 0</secondName>
     <surname>surname 0</surname>
     <id>2147483647</id>
     <groupIndex>0</groupIndex>
   </contacts>
   <contacts>
+    <firstName>test 1</firstName>
     <secondName>SecondName 1</secondName>
     <surname>surname 1</surname>
     <id>2147483647</id>
     <groupIndex>0</groupIndex>
   </contacts>
   <contacts>
+    <firstName>test 2</firstName>
     <secondName>SecondName 2</secondName>
     <surname>surname 2</surname>
     <id>2147483647</id>
