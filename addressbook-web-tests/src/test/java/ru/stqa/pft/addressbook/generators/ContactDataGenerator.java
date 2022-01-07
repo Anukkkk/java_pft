@@ -24,12 +24,12 @@ public class ContactDataGenerator {
     @Parameter(names = "-d", description = "Data format")
     public String format;
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         ContactDataGenerator generator = new ContactDataGenerator();
         JCommander jCommander = new JCommander(generator);
         try {
             jCommander.parse(args);
-        } catch (ParameterException ex){
+        } catch (ParameterException ex) {
             jCommander.usage();
             return;
         }
@@ -38,9 +38,9 @@ public class ContactDataGenerator {
 
     private void run() throws IOException {
         List<ContactData> contacts = generateContacts(count);
-        if (format.equals("csv")){
+        if (format.equals("csv")) {
             saveAsCSV(contacts, new File(file));
-        } else if (format.equals("xml")){
+        } else if (format.equals("xml")) {
             saveAsXML(contacts, new File(file));
         } else {
             System.out.println("Unrecognized format " + format);
@@ -52,25 +52,26 @@ public class ContactDataGenerator {
         XStream xstream = new XStream();
         xstream.processAnnotations(ContactData.class);
         String xml = xstream.toXML(contacts);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }
     }
 
     private void saveAsCSV(List<ContactData> contacts, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
-        Writer writer = new FileWriter(file);
-        for (ContactData contact : contacts){
-            writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getSurname(), contact.getSecondName()));
+        try (Writer writer = new FileWriter(file)) {
+            for (ContactData contact : contacts) {
+                writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getSurname(), contact.getSecondName()));
+
+            }
         }
-        writer.close();
     }
 
     private List<ContactData> generateContacts(int count) {
         List<ContactData> contacts = new ArrayList<ContactData>();
         for (int i = 0; i < count; i++) {
             contacts.add(new ContactData().withFirstName(String.format("test %s", i))
-                    .withSurname(String.format("surname %s",i)).withSecondName(String.format("SecondName %s",i)));
+                    .withSurname(String.format("surname %s", i)).withSecondName(String.format("SecondName %s", i)));
         }
         return contacts;
     }
