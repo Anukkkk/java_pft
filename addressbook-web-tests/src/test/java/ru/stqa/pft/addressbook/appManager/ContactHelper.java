@@ -10,9 +10,9 @@ import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.List;
 
-public class СontactHelper extends HelperBase {
+public class ContactHelper extends HelperBase {
 
-    public СontactHelper(WebDriver wd) {
+    public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
