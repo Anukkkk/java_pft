@@ -3,33 +3,69 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contacts")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+
     @Expose
+    @Column(name = "firstname")
     private String firstName;
     @Expose
+    @Transient
     private String secondName;
     @Expose
+    @Column(name = "lastname")
     private String surname;
     private String nickName;
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
+
+
+    @Transient
     private int groupIndex;
+
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
+
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
+
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
+    @Transient
     private String phone2;
+    @Transient
     private String email;
+    @Transient
     private String email2;
+    @Transient
     private String email3;
+    @Transient
     private String postAddress;
+
+    @Transient
     private String AllPhones;
+
+    @Transient
+    @Type(type = "text")
     private String AllEmails;
-    private File photo;
+
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
     public String getPhone2() {
         return phone2;
@@ -41,11 +77,11 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -119,18 +155,6 @@ public class ContactData {
 
     public String getPostAddress() {return postAddress;}
 
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", id=" + id +
-                ", groupIndex=" + groupIndex +
-                '}';
-    }
-
     public ContactData withId(int id) {
         this.id = id;
         return this;
@@ -157,6 +181,15 @@ public class ContactData {
     public ContactData withSecondName(String secondName) {
         this.secondName = secondName;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id=" + id +
+                '}';
     }
 
     public ContactData withSurname(String surname) {

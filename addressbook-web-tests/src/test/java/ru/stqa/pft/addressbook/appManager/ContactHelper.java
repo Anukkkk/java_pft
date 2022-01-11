@@ -21,7 +21,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("middlename"), contactData.getSecondName());
         type(By.name("lastname"), contactData.getSurname());
         type(By.name("nickname"), contactData.getNickName());
-        attach(By.name("photo"), contactData.getPhoto());
+        //attach(By.name("photo"), contactData.getPhoto());
 
         if (creation) {
             Select select = new Select(wd.findElement(By.name("new_group")));
