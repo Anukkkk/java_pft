@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
 import java.io.File;
-import java.util.Objects;
 
 @XStreamAlias("contacts")
 @Entity
@@ -169,13 +168,20 @@ public class ContactData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname);
+
+        if (id != that.id) return false;
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        return surname != null ? surname.equals(that.surname) : that.surname == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, surname, id);
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + id;
+        return result;
     }
 
     public ContactData withSecondName(String secondName) {

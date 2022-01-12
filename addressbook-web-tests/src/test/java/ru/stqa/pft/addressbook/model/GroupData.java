@@ -6,8 +6,6 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
-import java.util.Objects;
-
 @XStreamAlias("group")
 @Entity
 @Table(name = "group_list", indexes = {
@@ -81,12 +79,21 @@ public class GroupData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         GroupData groupData = (GroupData) o;
-        return id == groupData.id && Objects.equals(name, groupData.name) && Objects.equals(header, groupData.header) && Objects.equals(footer, groupData.footer);
+
+        if (id != groupData.id) return false;
+        if (name != null ? !name.equals(groupData.name) : groupData.name != null) return false;
+        if (header != null ? !header.equals(groupData.header) : groupData.header != null) return false;
+        return footer != null ? footer.equals(groupData.footer) : groupData.footer == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, header, footer);
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (header != null ? header.hashCode() : 0);
+        result = 31 * result + (footer != null ? footer.hashCode() : 0);
+        return result;
     }
 }
