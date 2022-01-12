@@ -8,10 +8,5 @@
     "firstName": "test 1",
     "secondName": "SecondName 1",
     "surname": "surname 1"
-  },
-  {
-    "firstName": "test 2",
-    "secondName": "SecondName 2",
-    "surname": "surname 2"
   }
 ]
