@@ -7,11 +7,13 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("contacts")
 @Entity
 @Table(name = "addressbook")
-public class ContactData {
+public class ContactData extends GroupData {
 
     @Expose
     @Column(name = "firstname")
@@ -29,8 +31,8 @@ public class ContactData {
     private int id = Integer.MAX_VALUE;
 
 
-    @Transient
-    private int groupIndex;
+   // @Transient
+   // private int groupIndex;
 
     @Column(name = "work")
     @Type(type = "text")
@@ -65,6 +67,15 @@ public class ContactData {
     @Column(name = "photo")
     @Type(type = "text")
     private String photo;
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
 
     public String getPhone2() {
         return phone2;
@@ -140,10 +151,6 @@ public class ContactData {
         return nickName;
     }
 
-    public int getGroupIndex() {
-        return groupIndex;
-    }
-
     public String getWorkPhone() { return workPhone;}
 
     public String getHomePhone() {return homePhone;}
@@ -205,11 +212,6 @@ public class ContactData {
 
     public ContactData withNickName(String nickName) {
         this.nickName = nickName;
-        return this;
-    }
-
-    public ContactData withGroupIndex(int groupIndex) {
-        this.groupIndex = groupIndex;
         return this;
     }
 
