@@ -44,7 +44,7 @@ public class RemoveContactFromGroupTest extends TestBase{
     }
 
     private GroupData selectedGroup(ContactData contactForDel) {
-        ContactData con = app.contact().selectContactById(contactForDel.getId());
+        ContactData con = selectContactById(contactForDel);
         Groups deletedContact = con.getGroups();
         return deletedContact.iterator().next();
     }
