@@ -13,7 +13,7 @@ import java.util.Set;
 @XStreamAlias("contacts")
 @Entity
 @Table(name = "addressbook")
-public class ContactData extends GroupData {
+public class ContactData{
 
     @Expose
     @Column(name = "firstname")
