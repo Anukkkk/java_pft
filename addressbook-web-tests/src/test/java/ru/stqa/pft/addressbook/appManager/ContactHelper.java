@@ -90,8 +90,13 @@ public class ContactHelper extends HelperBase {
     public void create(ContactData contact) {
         initContactCreation();
         fillInContactForm(contact, true);
+        submitContactCreation();
         contactCashe = null;
         goToHomePage();
+    }
+
+    public void submitContactCreation() {
+        click(By.xpath("//input[21]"));
     }
 
 
