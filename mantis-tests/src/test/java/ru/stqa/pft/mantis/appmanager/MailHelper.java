@@ -4,13 +4,10 @@ import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 import ru.stqa.pft.mantis.model.MailMessage;
 
-
-import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class MailHelper {
@@ -37,7 +34,7 @@ public class MailHelper {
         throw new Error("No mail :(");
     }
 
-    public static MailMessage toModelMail(WiserMessage m) throws MessagingException {
+    public static MailMessage toModelMail(WiserMessage m){
         try {
             MimeMessage mm = m.getMimeMessage();
             return new MailMessage(mm.getAllRecipients()[0].toString(), (String) mm.getContent());
