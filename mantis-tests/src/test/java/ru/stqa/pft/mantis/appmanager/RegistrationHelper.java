@@ -29,7 +29,16 @@ public class RegistrationHelper extends HelperBase{
         click(By.cssSelector("input[value='Login']"));
     }
 
-    public void manage() {
-        click(By.xpath("xpath=//a[contains(text(),'Manage Users')]"));
+    public void chooseUser(String user){
+        wd.get(app.getProperty("web.baseUrl") + "/manage_user_page.php");
+        click(By.linkText(user));
+        click(By.cssSelector("input[value='Reset Password']"));
+    }
+
+    public void finishReset(String confirmationLink, String password, String new_passwd){
+        wd.get(confirmationLink);
+        type(By.name("password"), password);
+        type(By.name("password_confirm"), new_passwd);
+        click(By.xpath("//input[@value='Update User']"));
     }
 }
