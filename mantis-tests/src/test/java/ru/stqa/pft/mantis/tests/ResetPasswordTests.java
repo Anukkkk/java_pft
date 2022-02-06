@@ -27,8 +27,6 @@ public class ResetPasswordTests extends TestBase {
         UserData selectedUser = users.iterator().next();
         String username = selectedUser.getName();
         String email = selectedUser.getEmail();
-        String password = selectedUser.getPassword();
-        Integer id = selectedUser.getId();
         app.registration().chooseUser(username);
         List<MailMessage> mailMessages = app.mail().waitForMail(1, 60000);
         String confirmationLink = findConfirmationLink(mailMessages, email);

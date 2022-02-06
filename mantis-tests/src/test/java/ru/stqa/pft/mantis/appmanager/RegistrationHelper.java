@@ -34,11 +34,4 @@ public class RegistrationHelper extends HelperBase{
         click(By.linkText(user));
         click(By.cssSelector("input[value='Reset Password']"));
     }
-
-    public void finishReset(String confirmationLink, String password, String new_passwd){
-        wd.get(confirmationLink);
-        type(By.name("password"), password);
-        type(By.name("password_confirm"), new_passwd);
-        click(By.xpath("//input[@value='Update User']"));
-    }
 }
