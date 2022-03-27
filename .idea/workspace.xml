@@ -30,6 +30,12 @@
         <task path="$PROJECT_DIR$/addressbook-web-tests">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/github-sample">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/rest-sample">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -49,8 +55,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectId" id="21GHcwLwVkya5YzfGyxCak4Jhnd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -160,10 +180,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.MyFirst" />
       <item itemvalue="TestNG.GroupCreationTests" />
       <item itemvalue="TestNG.AddingNewContact" />
       <item itemvalue="TestNG.GroupDeletionTests" />
-      <item itemvalue="Application.MyFirst" />
       <item itemvalue="TestNG.SquareTests" />
     </list>
     <recent_temporary>
@@ -197,7 +217,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
