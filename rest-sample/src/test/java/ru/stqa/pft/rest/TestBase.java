@@ -4,22 +4,17 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Executor;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.client.fluent.Request;
 import org.testng.SkipException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.RemoteException;
 import java.util.Set;
-
-import static com.sun.javafx.runtime.async.BackgroundExecutor.getExecutor;
 
 public class TestBase {
 
     public boolean isIssueOpen(int issueId) throws IOException {
-        String issueById = getExecutor().execute(Request.Get(String.format("https://bugify.stqa.ru/api/%s.json", issueId)))
+        String issueById = getExecutor().execute(Request.Get(String.format("https://bugify.stqa.ru/api/issues/%s.json", issueId)))
                 .returnContent().asString();
         JsonElement parsed = new JsonParser().parse(issueById);
         JsonElement jsonIssues = parsed.getAsJsonObject().get("issues");
