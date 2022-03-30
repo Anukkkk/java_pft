@@ -44,7 +44,7 @@ task testContacts (type: Test) {
     }
 
     if (project.hasProperty('target')) {
-        systemProperty 'target', "${verifyUI}"
+        systemProperty 'target', "${target}"
     }
 
     if (project.hasProperty('verifyUI')) {
