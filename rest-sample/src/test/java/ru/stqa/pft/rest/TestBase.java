@@ -23,7 +23,7 @@ public class TestBase {
         Issue selectedIssue = setIssues.iterator().next();
         System.out.println("state_name = " + selectedIssue.getStatus());
 
-        if (selectedIssue.getStatus().equals("resolved") || selectedIssue.getStatus().equals("closed"))
+        if (selectedIssue.getStatus().equals("Resolved") || selectedIssue.getStatus().equals("Closed"))
     {
             return false;
     } else{return true;}
